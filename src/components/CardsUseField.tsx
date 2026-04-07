@@ -1,0 +1,30 @@
+import { Button, Loader, TextInput } from '@mantine/core';
+import { useField } from '@mantine/form';
+
+function validateAsync(value: string): Promise<string | null> {
+  return new Promise((resolve) => {
+    window.setTimeout(() => {
+      resolve(value === 'mantine' ? null : 'Value must be "mantine"');
+    }, 800);
+  });
+}
+
+export function UseFieldDemo() {
+  const field = useField({
+    initialValue: '',
+    validate: validateAsync,
+  });
+
+  return (
+    <>
+      <TextInput
+        {...field.getInputProps()}
+        label="Enter 'mantine'"
+        placeholder="Enter 'mantine'"
+        rightSection={field.isValidating ? <Loader size={18} /> : null}
+        mb="md"
+      />
+      <Button onClick={field.validate}>Validate async</Button>
+    </>
+  );
+}
