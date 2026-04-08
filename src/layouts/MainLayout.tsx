@@ -15,9 +15,9 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { type ReactNode } from "react";
-import { SwitchThemeButton } from "../components/SwitchTheme";
 import { NavLinksDemo } from "../components/NavLinks";
 import { SignInIcon } from "@phosphor-icons/react";
+import { ToggleColorTheme } from "../components/ToggleColorTheme";
 
 export function MainLayout({ children }: { children: ReactNode }) {
     const [opened] = useDisclosure();
@@ -50,9 +50,9 @@ export function MainLayout({ children }: { children: ReactNode }) {
                         direction="row"
                         wrap="nowrap"
                     >
-                        <Title order={4}>Mantine</Title>
+                        <Title order={4}>Mantine Demo</Title>
                         <Box ml="auto">
-                            <SwitchThemeButton />
+                            <ToggleColorTheme />
                         </Box>
                     </Flex>
                 </AppShell.Section>
