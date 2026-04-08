@@ -67,7 +67,7 @@ export const mantineTheme: MantineThemeOverride = createTheme({
         '#101113',
       ],
     },
-  primaryColor: "indigo",
+  primaryColor: "violet",
   components: {
     /** Put your mantine component override here */
     Container: Container.extend({

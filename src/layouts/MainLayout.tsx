@@ -33,9 +33,9 @@ export function MainLayout({ children }: { children: ReactNode }) {
             layout="alt"
             // withBorder
             // disabled
-            bg={colorScheme === "dark" ? "gray.8" : "gray.0"}
+            bg={colorScheme === "dark" ? "gray.9" : "gray.0"}
         >
-            <AppShell.Navbar>
+            <AppShell.Navbar bg={colorScheme === "dark" ? "black" : "white"}>
                 <AppShell.Section
                     p="sm"
                     style={{
