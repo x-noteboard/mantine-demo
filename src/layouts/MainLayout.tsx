@@ -11,6 +11,7 @@ import {
     NavLink,
     ScrollArea,
     Title,
+    useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { type ReactNode } from "react";
@@ -19,8 +20,8 @@ import { NavLinksDemo } from "../components/NavLinks";
 import { SignInIcon } from "@phosphor-icons/react";
 
 export function MainLayout({ children }: { children: ReactNode }) {
-    const [opened ] = useDisclosure();
-
+    const [opened] = useDisclosure();
+    const { colorScheme } = useMantineColorScheme();
     return (
         <AppShell
             navbar={{
@@ -32,7 +33,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
             layout="alt"
             // withBorder
             // disabled
-            bg="gray.0"
+            bg={colorScheme === "dark" ? "gray.8" : "gray.0"}
         >
             <AppShell.Navbar>
                 <AppShell.Section
@@ -68,11 +69,14 @@ export function MainLayout({ children }: { children: ReactNode }) {
                     }}
                 >
                     <Container fluid p="0">
-                        <Button fullWidth
+                        <Button
+                            fullWidth
                             leftSection={
                                 <SignInIcon size={"16"} weight="bold" />
                             }
-                        >Sign In</Button>
+                        >
+                            Sign In
+                        </Button>
                     </Container>
                 </AppShell.Section>
             </AppShell.Navbar>
